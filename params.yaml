@@ -1,0 +1,13 @@
+optuna: 
+  n_trials: 100
+  timeout: 15
+  cv: 3 #cross validation
+  direction: "maximize"  # study run direction
+  score: 'accuracy'
+  methods: ['catboost','lightgbm','xgboost'] # if you add any more methods you need to change src/components/training.py also and add its parameters and if condition when method name = your new method name
+
+data_ingestion:
+  request_timeout: 30
+
+data_preprocess:
+  test_size: 0.2   #(test train split ration)

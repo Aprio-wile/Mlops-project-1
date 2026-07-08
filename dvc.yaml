@@ -1,0 +1,59 @@
+stages:
+  data_ingestion:
+    cmd: python src/Pipeline/stage_1_ingestion.py
+    deps:
+      - src/Pipeline/stage_1_ingestion.py
+      - src/components/ingestion.py
+      - src/config/configuration.py
+      - src/entity/config_entity.py
+    params:
+      - data_ingestion
+    outs:
+      - artifacts/data_ingestion
+
+  data_validation:
+    cmd: python src/Pipeline/stage_2_validation.py
+    deps:
+      - src/Pipeline/stage_2_validation.py
+      - src/components/validation.py
+      - src/config/configuration.py
+      - src/entity/config_entity.py
+      - artifacts/data_ingestion
+    outs:
+      - artifacts/data_validation/status.txt
+  data_preprocessing:
+    cmd: python src/Pipeline/stage_3_preprocess.py
+    deps:
+      - src/Pipeline/stage_3_preprocess.py
+      - src/components/preprocess.py
+      - src/config/configuration.py
+      - src/entity/config_entity.py
+      - artifacts/data_ingestion
+    params:
+      - data_preprocess
+    outs:
+      - artifacts/data_preprocess
+
+  model_training:
+    cmd: python src/Pipeline/stage_4_training.py
+    deps:
+      - src/Pipeline/stage_4_training.py
+      - src/components/training.py
+      - src/config/configuration.py
+      - src/entity/config_entity.py
+      - artifacts/data_preprocess
+    params:
+      - optuna
+    outs:
+      - artifacts/model_trainer
+
+  model_evaluation:
+    cmd: python src/Pipeline/stage_5_evaluation.py
+    deps:
+      - src/Pipeline/stage_5_evaluation.py
+      - src/components/evaluation.py
+      - src/config/configuration.py
+      - src/entity/config_entity.py
+      - artifacts/model_trainer
+    metrics:
+      - artifacts/model_evaluation/metrics.json
