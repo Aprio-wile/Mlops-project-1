@@ -1,0 +1,5 @@
+# its a classifier problem but if u change it u need to change preprocess.py and remove label encoder for target column and use standard scaling instead after removing outliers and data cleaning
+# whenever u change your dataset u should also change preprocessing.py and add data cleaning steps accordingly
+preprocess:
+  col_to_drop: ['sl_no','salary','gender']
+  target_col: 'status'

@@ -1,0 +1,8 @@
+.venv
+catboost_info/
+logs/
+__pycache__
+notebook/
+test.py 
+.git
+.gitignore

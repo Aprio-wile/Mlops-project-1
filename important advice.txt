@@ -1,0 +1,12 @@
+# its a classifier problem but if u change it u need to change preprocess.py and remove label encoder for target column and use standard scaling instead after removing outliers and data cleaning
+# whenever u change your dataset u should also change preprocessing.py and add data cleaning steps accordingly
+#dont push your code to github after change else you want to make change on your server
+
+should run these commands in terminal after loading this project 
+# Step 1: Install all the external tools (pandas, numpy, etc.)
+pip install -r requirements.txt
+
+# Step 2: Install your local project as an editable package
+pip install -e .
+
+# make dagshub account and repo and join to this project , and then connect dagshub mlflow with it
