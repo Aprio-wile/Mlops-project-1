@@ -11,12 +11,13 @@ placement_prediction.egg-info/dependency_links.txt
 placement_prediction.egg-info/top_level.txt
 src/__init__.py
 src/Pipeline/__init__.py
-src/Pipeline/prediction.py
 src/Pipeline/stage_1_ingestion.py
 src/Pipeline/stage_2_validation.py
 src/Pipeline/stage_3_preprocess.py
 src/Pipeline/stage_4_training.py
 src/Pipeline/stage_5_evaluation.py
+src/Prediction/__init__.py
+src/Prediction/prediction.py
 src/components/__init__.py
 src/components/evaluation.py
 src/components/ingestion.py
@@ -30,5 +31,3 @@ src/entity/__init__.py
 src/entity/config_entity.py
 src/utils/__init__.py
 src/utils/common.py
-tests/__init__.py
-tests/test_api.py

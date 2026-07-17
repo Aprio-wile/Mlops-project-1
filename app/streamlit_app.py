@@ -2,10 +2,11 @@ import streamlit as st
 from src import logging
 import requests
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
-API_URL = "url"
+API_URL = os.getenv("API_URL")
 
 st.title("Student Placement Prediction")
 

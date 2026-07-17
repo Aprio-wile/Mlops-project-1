@@ -106,4 +106,5 @@ jobs:
               --name ${{ env.CONTAINER_NAME }} \
               --restart always \
               -p 8501:8501 \
+              -e API_URL="${{ secrets.API_URL }}" \
               ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
