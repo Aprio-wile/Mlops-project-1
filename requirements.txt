@@ -13,3 +13,4 @@ scikit-learn==1.7.2
 streamlit==1.55.0
 uvicorn==0.50.2
 xgboost==3.3.0
+-e . 

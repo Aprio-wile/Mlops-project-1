@@ -30,3 +30,5 @@ src/entity/__init__.py
 src/entity/config_entity.py
 src/utils/__init__.py
 src/utils/common.py
+tests/__init__.py
+tests/test_api.py
