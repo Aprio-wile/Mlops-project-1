@@ -44,7 +44,7 @@ jobs:
       # Run tests
       - name: Run tests
         run: |
-            pytest -v --no-tests=pass
+            pytest -v 
 
       # (Optional) Validate DVC pipeline
       - name: Check DVC pipeline
