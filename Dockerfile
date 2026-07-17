@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
+# Copy project
+COPY . .
+
 # Copy dependency file first (better Docker cache)
 COPY requirements.txt .
 
@@ -24,8 +27,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Copy project
-COPY . .
+
 
 # Expose streamlit port
 EXPOSE 8501
