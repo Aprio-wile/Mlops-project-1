@@ -12,3 +12,10 @@ pip install -e .
 # make dagshub account and repo and join to this project , and then connect dagshub mlflow with it
 
 iam user should have AmazonEC2ContainerRegistryPowerUser  permission, to login 
+
+COPY . .
+
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+first copy everything then install , instead of first install then copy. 
