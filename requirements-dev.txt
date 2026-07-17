@@ -1,0 +1,14 @@
+-r requirements.txt
+
+dvc==3.67.1
+dvc-s3
+mlflow==3.14.0
+dagshub==0.7.0
+optuna==4.9.0
+
+jupyter
+ipykernel
+matplotlib
+seaborn
+pytest
+pipreqs
