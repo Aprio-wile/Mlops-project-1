@@ -24,7 +24,7 @@ class InputData(BaseModel):
     degree_p:float=Field(description='degree percentage')
     degree_t: Literal["Sci&Tech", "Comm&Mgmt", "Others"]=Field(description='degree type')
     workex:Literal['Yes','No']=Field(description="previous work experience")
-    etest_p:float=Field(descriptin='employability test percentage',ge=0,le=100)
+    etest_p:float=Field(description='employability test percentage',ge=0,le=100)
     specialisation: Literal["Mkt&HR", "Mkt&Fin"]=Field(description='mba specialisation')
     mba_p:float=Field(description='mba score percentage',ge=0,le=100)
 
