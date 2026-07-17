@@ -95,7 +95,7 @@ class model_trainer:
 
         # MLFLOW logging
 
-        with mlflow.start_run()
+        with mlflow.start_run():
             study = optuna.create_study(direction="maximize")
             study.optimize(objective, n_trials=self.config.n_trials, timeout=self.config.timeout)    
 
