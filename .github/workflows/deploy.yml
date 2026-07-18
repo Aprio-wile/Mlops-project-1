@@ -107,7 +107,7 @@ jobs:
               --name ml-api \
               --restart always \
               -p 8500:8500 \
-              ${{ steps.login-ecr.outputs.registry }}/ml-api:latest
+              ${{ steps.login-ecr.outputs.registry }}/ml-app:latest
 
 
             # Deploy Streamlit
