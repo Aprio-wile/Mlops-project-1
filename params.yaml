@@ -1,6 +1,6 @@
 optuna: 
   n_trials: 100
-  timeout: 15
+  timeout: 100
   cv: 3 #cross validation
   direction: "maximize"  # study run direction
   score: 'accuracy'
