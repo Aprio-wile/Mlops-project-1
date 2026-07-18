@@ -23,3 +23,6 @@ first copy everything then install , instead of first install then copy.
 
 while writing secret ec2 ssh key 
 -----BEGIN OPENSSH PRIVATE KEY---- also include these begin and end lines
+
+
+api_url in security group will be private ip of ec2 and while running the server we use public ip
