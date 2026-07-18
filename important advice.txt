@@ -26,3 +26,15 @@ while writing secret ec2 ssh key
 
 
 api_url in security group will be private ip of ec2 and while running the server we use public ip
+
+always add host: ${{ steps.ec2-ip.outputs.instance_ip }} in ssh appleboy wale host mein and 
+
+      - name: Get Live EC2 Public IP
+        id: ec2-ip
+        run: |
+          PUBLIC_IP=$(aws ec2 describe-instances \
+            --instance-ids ${{ secrets.EC2_INSTANCE_ID }} \
+            --query "Reservations[*].Instances[*].PublicIpAddress" \
+            --output text)
+          echo "instance_ip=$PUBLIC_IP" >> $GITHUB_OUTPUT
+ immediately before ssh , so that. whenever you reboot it automatically fetch new public ip PublicIpAddress
