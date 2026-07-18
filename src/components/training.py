@@ -8,6 +8,7 @@ from sklearn.model_selection import cross_val_score
 from pathlib import Path
 import pickle
 import optuna
+import mlflow
 
 
 # Set optuna logging to warning to avoid cluttering the logs
@@ -101,9 +102,9 @@ class model_trainer:
 
             mlflow.log_params(study.best_params)
             mlflow.log_metric('best_score',study.best_value)
-            mlflow.log_param('model_name',best_model_name)
+            mlflow.log_param('model_name',study.best_trial.params['classifier'])
 
-            classifier_name = best_params['classifier']
+            classifier_name = study.best_trial.params['classifier']
 
             if classifier_name == "catboost":
                 mlflow.catboost.log_model(model, "model")
@@ -167,7 +168,16 @@ class model_trainer:
 
         logging.info("Training final model with best hyperparameters...")
         final_model = model_class(**filtered_params)
-        final_model.fit(X_train, y_train)
+    final_model.fit(X_train, y_train)
+
+    if classifier_name == "catboost":
+        mlflow.catboost.log_model(final_model, "model")
+
+    elif classifier_name == "lightgbm":
+        mlflow.lightgbm.log_model(final_model, "model")
+
+    elif classifier_name == "xgboost":
+        mlflow.xgboost.log_model(final_model, "model")
 
 
         # Ensure directory for model saving exists

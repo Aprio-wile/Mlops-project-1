@@ -3,6 +3,7 @@ from src import logging
 import requests
 from dotenv import load_dotenv
 import os
+import uvicorn
 
 load_dotenv()
 
@@ -108,3 +109,5 @@ if submit:
     except Exception as e:
         st.error(f"API connection failed: {e}")
         logging.exception(e)
+
+
