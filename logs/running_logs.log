@@ -1,0 +1,2498 @@
+[2026-07-01 00:07:53,257: INFO: app: log start]
+[2026-07-03 00:52:28,964: INFO: training: ========================================]
+[2026-07-03 00:52:28,964: INFO: training: Starting Training Pipeline Execution]
+[2026-07-03 00:52:28,964: INFO: training: ========================================]
+[2026-07-03 00:52:28,966: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 00:52:28,968: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 00:52:28,968: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 00:52:28,969: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 00:52:28,969: ERROR: training: Training Pipeline failed.]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/training_pipeline/training.py", line 59, in <module>
+    pipeline.run()
+    ~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/training_pipeline/training.py", line 20, in run
+    config_manager = ConfigurationManager()
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/config/configuration.py", line 24, in __init__
+    create_directory(Path(self.config.artifacts_root))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/ensure/main.py", line 873, in __call__
+    if not isinstance(return_val, self.return_templ):
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+[2026-07-03 00:52:44,769: INFO: training: ========================================]
+[2026-07-03 00:52:44,769: INFO: training: Starting Training Pipeline Execution]
+[2026-07-03 00:52:44,769: INFO: training: ========================================]
+[2026-07-03 00:52:44,771: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 00:52:44,772: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 00:52:44,773: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 00:52:44,773: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 00:52:44,773: INFO: training: --- Stage 1: Data Ingestion ---]
+[2026-07-03 00:52:44,773: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 00:52:44,773: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 00:52:44,773: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-03 00:52:46,681: INFO: ingestion: Data download request successful.]
+[2026-07-03 00:52:46,684: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-03 00:52:46,686: INFO: training: --- Stage 2: Data Validation ---]
+[2026-07-03 00:52:46,687: INFO: common: Directory created or already exists at: artifacts/data_validation]
+[2026-07-03 00:52:46,687: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 00:52:46,687: INFO: validation: Generating status file...]
+[2026-07-03 00:52:46,688: INFO: validation: Status file generated successfully.]
+[2026-07-03 00:52:46,688: INFO: training: --- Stage 3: Data Preprocessing ---]
+[2026-07-03 00:52:46,688: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-03 00:52:46,688: INFO: preprocess: Loading CSV data...]
+[2026-07-03 00:52:46,716: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-03 00:52:46,717: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-03 00:52:46,720: ERROR: preprocess: Exception occurred during preprocessing.]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/preprocess.py", line 24, in load_file
+    logging.info(f'Dropping columns: {self.config.col_to_drop}')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DatapreprocessConfig' object has no attribute 'col_to_drop'
+[2026-07-03 00:52:46,721: ERROR: training: Training Pipeline failed.]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/training_pipeline/training.py", line 59, in <module>
+    pipeline.run()
+    ~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/training_pipeline/training.py", line 38, in run
+    data_preprocess.load_file()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/preprocess.py", line 87, in load_file
+    raise e
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/preprocess.py", line 24, in load_file
+    logging.info(f'Dropping columns: {self.config.col_to_drop}')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DatapreprocessConfig' object has no attribute 'col_to_drop'
+[2026-07-03 00:53:01,485: INFO: training: ========================================]
+[2026-07-03 00:53:01,485: INFO: training: Starting Training Pipeline Execution]
+[2026-07-03 00:53:01,485: INFO: training: ========================================]
+[2026-07-03 00:53:01,487: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 00:53:01,488: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 00:53:01,489: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 00:53:01,489: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 00:53:01,489: INFO: training: --- Stage 1: Data Ingestion ---]
+[2026-07-03 00:53:01,489: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 00:53:01,489: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 00:53:01,489: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-03 00:53:02,861: INFO: ingestion: Data download request successful.]
+[2026-07-03 00:53:02,862: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-03 00:53:02,865: INFO: training: --- Stage 2: Data Validation ---]
+[2026-07-03 00:53:02,865: INFO: common: Directory created or already exists at: artifacts/data_validation]
+[2026-07-03 00:53:02,866: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 00:53:02,866: INFO: validation: Generating status file...]
+[2026-07-03 00:53:02,866: INFO: validation: Status file generated successfully.]
+[2026-07-03 00:53:02,866: INFO: training: --- Stage 3: Data Preprocessing ---]
+[2026-07-03 00:53:02,866: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-03 00:53:02,867: INFO: preprocess: Loading CSV data...]
+[2026-07-03 00:53:02,882: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-03 00:53:02,882: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-03 00:53:02,884: INFO: preprocess: Dropping columns: ['sl_no', 'salary', 'gender']]
+[2026-07-03 00:53:02,886: INFO: preprocess: Splitting data into train and test sets...]
+[2026-07-03 00:53:02,888: INFO: preprocess: Categorical columns: ['ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'workex', 'specialisation']]
+[2026-07-03 00:53:02,889: INFO: preprocess: Numerical columns: ['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p']]
+[2026-07-03 00:53:02,889: INFO: preprocess: Fitting preprocessor on training data...]
+[2026-07-03 00:53:02,909: INFO: preprocess: Fitting label encoder on targets...]
+[2026-07-03 00:53:02,909: INFO: preprocess: Saving preprocessor to artifacts/data_preprocess/preprocessor.pkl]
+[2026-07-03 00:53:02,911: INFO: preprocess: Saving label encoder to artifacts/data_preprocess/labelencoder.pkl]
+[2026-07-03 00:53:02,912: INFO: preprocess: Saving preprocessed datasets to disk...]
+[2026-07-03 00:53:02,917: INFO: preprocess: Preprocessing completed successfully.]
+[2026-07-03 00:53:02,917: INFO: training: --- Stage 4: Model Training ---]
+[2026-07-03 00:53:02,917: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-03 00:53:02,917: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-03 00:53:02,919: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-03 00:57:06,414: INFO: training: Optimization finished. Best accuracy score: 0.8895]
+[2026-07-03 00:57:06,414: INFO: training: Best classifier: xgboost]
+[2026-07-03 00:57:06,414: INFO: training: Filtering best parameters...]
+[2026-07-03 00:57:06,414: INFO: training: Filtered parameters: {'n_estimators': 600, 'max_depth': 9, 'learning_rate': 0.004873192783094303, 'subsample': 0.9847241941197822, 'colsample_bytree': 0.8444098168234406, 'eval_metric': 'logloss'}]
+[2026-07-03 00:57:06,414: INFO: training: Training final model with best hyperparameters...]
+[2026-07-03 00:57:07,520: INFO: training: Saving final model to artifacts/model_trainer/model.pkl...]
+[2026-07-03 00:57:07,525: INFO: training: Model saved successfully.]
+[2026-07-03 00:57:07,526: INFO: training: --- Stage 5: Model Evaluation ---]
+[2026-07-03 00:57:07,526: INFO: common: Directory created or already exists at: artifacts/model_evaluation]
+[2026-07-03 00:57:07,526: INFO: evaluation: Loading test datasets for evaluation...]
+[2026-07-03 00:57:07,529: INFO: evaluation: Loading trained model from artifacts/model_trainer/model.pkl...]
+[2026-07-03 00:57:07,535: INFO: evaluation: Generating predictions on test data...]
+[2026-07-03 00:57:07,537: INFO: evaluation: Calculating performance metrics...]
+[2026-07-03 00:57:07,543: INFO: evaluation: Evaluation Metrics: {'accuracy': 0.813953488372093, 'precision': 0.8285714285714286, 'recall': 0.9354838709677419, 'f1_score': 0.8787878787878788}]
+[2026-07-03 00:57:07,544: INFO: evaluation: Saving evaluation metrics to artifacts/model_evaluation/metrics.json...]
+[2026-07-03 00:57:07,544: INFO: evaluation: Model evaluation completed successfully.]
+[2026-07-03 00:57:07,545: INFO: training: ========================================]
+[2026-07-03 00:57:07,545: INFO: training: Training Pipeline Execution Completed Successfully!]
+[2026-07-03 00:57:07,545: INFO: training: ========================================]
+[2026-07-03 18:35:46,232: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-03 18:35:46,234: INFO: stage_2_validation: ####### STAGE 1 START #######]
+[2026-07-03 18:35:48,779: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-03 18:43:14,845: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-03 18:43:14,846: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:43:14,846: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-03 18:43:14,846: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:43:16,059: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-03 18:43:16,059: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:43:16,768: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-03 18:43:16,768: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:44:17,775: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-03 18:44:17,775: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:44:17,775: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-03 18:44:17,775: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:44:18,981: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-03 18:44:18,982: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:44:19,374: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-03 18:44:19,374: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:44:19,377: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-03 18:44:19,377: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-03 18:44:19,377: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-03 18:44:19,379: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:44:19,382: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:44:19,383: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:44:19,383: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:44:19,383: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 18:44:19,384: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-03 18:44:19,384: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 18:44:19,384: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-03 18:44:21,561: INFO: ingestion: Data download request successful.]
+[2026-07-03 18:44:21,563: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-03 18:44:21,566: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:44:21,566: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-03 18:44:21,569: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:44:21,570: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:44:21,571: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:44:21,571: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:44:21,572: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-03 18:44:21,572: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 18:44:21,572: INFO: validation: Generating status file...]
+[2026-07-03 18:44:21,572: INFO: validation: Status file generated successfully.]
+[2026-07-03 18:44:21,572: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:44:21,572: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2026-07-03 18:44:21,572: ERROR: main: name 'DataTransformationTrainingPipeline' is not defined]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/main.py", line 35, in <module>
+    data_ingestion = DataTransformationTrainingPipeline()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'DataTransformationTrainingPipeline' is not defined. Did you mean: 'DataValidationTrainingPipeline'?
+[2026-07-03 18:47:01,309: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-03 18:47:01,310: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:47:01,310: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-03 18:47:01,310: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:47:02,543: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-03 18:47:02,543: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:47:02,940: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-03 18:47:02,940: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:47:02,940: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-03 18:47:02,940: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-03 18:47:02,940: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-03 18:47:02,942: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:47:02,943: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:47:02,944: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:47:02,944: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:47:02,944: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 18:47:02,944: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-03 18:47:02,944: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 18:47:02,944: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-03 18:47:04,551: INFO: ingestion: Data download request successful.]
+[2026-07-03 18:47:04,553: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-03 18:47:04,556: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:47:04,556: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-03 18:47:04,558: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:47:04,560: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:47:04,561: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:47:04,561: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:47:04,561: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-03 18:47:04,561: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 18:47:04,561: INFO: validation: Generating status file...]
+[2026-07-03 18:47:04,562: INFO: validation: Status file generated successfully.]
+[2026-07-03 18:47:04,562: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:47:04,562: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-03 18:47:04,564: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:47:04,566: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:47:04,566: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:47:04,567: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:47:04,567: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-03 18:47:04,567: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 18:47:04,567: INFO: validation: Generating status file...]
+[2026-07-03 18:47:04,567: INFO: validation: Status file generated successfully.]
+[2026-07-03 18:47:04,567: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:47:04,567: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-03 18:47:04,569: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:47:04,570: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:47:04,571: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:47:04,571: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:47:04,571: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-03 18:47:04,571: ERROR: main: invalid literal for int() with base 10: 'accuracy']
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/main.py", line 48, in <module>
+    data_ingestion.main()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/stage_4_training.py", line 13, in main
+    model_training_config=config.get_model_trainer_config()
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/config/configuration.py", line 90, in get_model_trainer_config
+    score=int(params.score)
+ValueError: invalid literal for int() with base 10: 'accuracy'
+[2026-07-03 18:51:07,909: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-03 18:51:07,909: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:51:07,910: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-03 18:51:07,910: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:51:09,138: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-03 18:51:09,138: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:51:09,532: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-03 18:51:09,533: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:51:09,533: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-03 18:51:09,533: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-03 18:51:09,533: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-03 18:51:09,535: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:51:09,536: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:51:09,537: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:51:09,537: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:51:09,537: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 18:51:09,537: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-03 18:51:09,537: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 18:51:09,537: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-03 18:51:11,386: INFO: ingestion: Data download request successful.]
+[2026-07-03 18:51:11,387: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-03 18:51:11,390: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:51:11,390: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-03 18:51:11,393: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:51:11,394: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:51:11,395: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:51:11,395: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:51:11,396: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-03 18:51:11,396: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 18:51:11,396: INFO: validation: Generating status file...]
+[2026-07-03 18:51:11,396: INFO: validation: Status file generated successfully.]
+[2026-07-03 18:51:11,396: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:51:11,396: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-03 18:51:11,399: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:51:11,400: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:51:11,401: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:51:11,401: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:51:11,401: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-03 18:51:11,401: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 18:51:11,401: INFO: validation: Generating status file...]
+[2026-07-03 18:51:11,402: INFO: validation: Status file generated successfully.]
+[2026-07-03 18:51:11,402: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:51:11,402: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-03 18:51:11,404: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:51:11,405: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:51:11,406: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:51:11,406: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:51:11,406: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-03 18:51:11,406: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-03 18:51:11,406: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-03 18:51:11,429: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-03 18:51:11,433: ERROR: main: 'modeltrainerConfig' object has no attribute 'accuracy']
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/main.py", line 48, in <module>
+    data_ingestion.main()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/stage_4_training.py", line 16, in main
+    model_training_instance.run_optuna()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/training.py", line 84, in run_optuna
+    study.optimize(objective, n_trials=self.config.n_trials, timeout=self.config.timeout)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/optuna/study/study.py", line 516, in optimize
+    _optimize(
+    ~~~~~~~~~^
+        study=self,
+        ^^^^^^^^^^^
+    ...<7 lines>...
+        show_progress_bar=show_progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/optuna/study/_optimize.py", line 68, in _optimize
+    _optimize_sequential(
+    ~~~~~~~~~~~~~~~~~~~~^
+        study,
+        ^^^^^^
+    ...<8 lines>...
+        progress_bar=progress_bar,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/optuna/study/_optimize.py", line 165, in _optimize_sequential
+    frozen_trial_id = _run_trial(study, func, catch)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/optuna/study/_optimize.py", line 263, in _run_trial
+    raise func_err
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/optuna/study/_optimize.py", line 206, in _run_trial
+    value_or_values = func(trial)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/training.py", line 77, in objective
+    scoring=f"{self.config.accuracy}"
+               ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'modeltrainerConfig' object has no attribute 'accuracy'
+[2026-07-03 18:53:43,058: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-03 18:53:43,058: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:53:43,058: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-03 18:53:43,058: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:53:44,299: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-03 18:53:44,299: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:53:44,702: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-03 18:53:44,702: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 18:53:44,702: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-03 18:53:44,702: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-03 18:53:44,702: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-03 18:53:44,704: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:53:44,705: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:53:44,706: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:53:44,706: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:53:44,706: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 18:53:44,706: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-03 18:53:44,706: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 18:53:44,706: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-03 18:53:46,625: INFO: ingestion: Data download request successful.]
+[2026-07-03 18:53:46,626: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-03 18:53:46,629: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:53:46,630: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-03 18:53:46,632: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:53:46,634: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:53:46,635: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:53:46,635: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:53:46,635: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-03 18:53:46,635: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 18:53:46,635: INFO: validation: Generating status file...]
+[2026-07-03 18:53:46,636: INFO: validation: Status file generated successfully.]
+[2026-07-03 18:53:46,636: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:53:46,636: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-03 18:53:46,638: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:53:46,639: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:53:46,640: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:53:46,640: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:53:46,640: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-03 18:53:46,640: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 18:53:46,640: INFO: validation: Generating status file...]
+[2026-07-03 18:53:46,641: INFO: validation: Status file generated successfully.]
+[2026-07-03 18:53:46,641: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:53:46,641: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-03 18:53:46,643: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:53:46,644: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:53:46,645: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:53:46,645: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:53:46,645: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-03 18:53:46,645: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-03 18:53:46,646: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-03 18:53:46,657: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-03 18:56:15,687: INFO: training: Optimization finished. Best accuracy score: 0.8895]
+[2026-07-03 18:56:15,688: INFO: training: Best classifier: xgboost]
+[2026-07-03 18:56:15,688: INFO: training: Filtering best parameters...]
+[2026-07-03 18:56:15,688: INFO: training: Filtered parameters: {'n_estimators': 100, 'max_depth': 8, 'learning_rate': 0.03461038391032827, 'subsample': 0.9522850534931027, 'colsample_bytree': 0.8713027788475606, 'eval_metric': 'logloss'}]
+[2026-07-03 18:56:15,689: INFO: training: Training final model with best hyperparameters...]
+[2026-07-03 18:56:15,848: INFO: training: Saving final model to artifacts/model_trainer/model.pkl...]
+[2026-07-03 18:56:15,851: INFO: training: Model saved successfully.]
+[2026-07-03 18:56:15,851: INFO: main: >>>>>> stage Model Trainer stage completed <<<<<<
+
+x==========x]
+[2026-07-03 18:56:15,851: INFO: main: >>>>>> stage Model evaluation stage started <<<<<<]
+[2026-07-03 18:56:15,853: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 18:56:15,854: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 18:56:15,855: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 18:56:15,855: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 18:56:15,855: INFO: common: Directory created or already exists at: artifacts/model_evaluation]
+[2026-07-03 18:56:15,855: ERROR: main: name 'evaluation_instance' is not defined]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/main.py", line 61, in <module>
+    data_ingestion.main()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/stage_5_evaluation.py", line 14, in main
+    evaluation_instance.evaluate()
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'evaluation_instance' is not defined. Did you mean: 'model_evaluation_instance'?
+[2026-07-03 19:05:44,692: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-03 19:05:44,692: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 19:05:44,692: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-03 19:05:44,692: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 19:05:46,075: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-03 19:05:46,075: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 19:05:46,571: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-03 19:05:46,571: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 19:05:46,572: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-03 19:05:46,572: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-03 19:05:46,572: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-03 19:05:46,574: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 19:05:46,575: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 19:05:46,576: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 19:05:46,576: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 19:05:46,576: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 19:05:46,576: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-03 19:05:46,576: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 19:05:46,576: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-03 19:05:50,147: INFO: ingestion: Data download request successful.]
+[2026-07-03 19:05:50,148: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-03 19:05:50,150: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-03 19:05:50,150: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-03 19:05:50,153: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 19:05:50,155: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 19:05:50,156: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 19:05:50,156: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 19:05:50,156: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-03 19:05:50,156: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 19:05:50,156: INFO: validation: Generating status file...]
+[2026-07-03 19:05:50,157: INFO: validation: Status file generated successfully.]
+[2026-07-03 19:05:50,157: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-03 19:05:50,157: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-03 19:05:50,160: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 19:05:50,161: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 19:05:50,162: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 19:05:50,162: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 19:05:50,162: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-03 19:05:50,163: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 19:05:50,163: INFO: validation: Generating status file...]
+[2026-07-03 19:05:50,163: INFO: validation: Status file generated successfully.]
+[2026-07-03 19:05:50,163: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-03 19:05:50,163: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-03 19:05:50,165: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 19:05:50,167: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 19:05:50,168: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 19:05:50,168: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 19:05:50,168: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-03 19:05:50,168: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-03 19:05:50,168: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-03 19:05:50,180: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-03 19:19:25,362: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-03 19:19:25,362: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 19:19:25,363: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-03 19:19:25,363: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 19:19:26,757: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-03 19:19:26,758: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 19:19:27,255: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-03 19:19:27,255: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-03 19:19:27,255: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-03 19:19:27,255: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-03 19:19:27,256: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-03 19:19:27,257: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 19:19:27,259: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 19:19:27,259: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 19:19:27,259: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 19:19:27,259: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 19:19:27,259: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-03 19:19:27,259: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-03 19:19:27,260: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-03 19:19:29,655: INFO: ingestion: Data download request successful.]
+[2026-07-03 19:19:29,656: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-03 19:19:29,659: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-03 19:19:29,660: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-03 19:19:29,663: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 19:19:29,664: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 19:19:29,665: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 19:19:29,666: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 19:19:29,666: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-03 19:19:29,666: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-03 19:19:29,666: INFO: validation: Generating status file...]
+[2026-07-03 19:19:29,666: INFO: validation: Status file generated successfully.]
+[2026-07-03 19:19:29,666: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-03 19:19:29,666: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-03 19:19:29,669: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 19:19:29,671: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 19:19:29,671: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 19:19:29,672: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 19:19:29,672: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-03 19:19:29,672: INFO: stage_3_preprocess: running Datapreprocess instance and try to run stage 2 ]
+[2026-07-03 19:19:29,672: INFO: preprocess: Loading CSV data...]
+[2026-07-03 19:19:29,685: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-03 19:19:29,685: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-03 19:19:29,689: INFO: preprocess: Dropping columns: ['sl_no', 'salary', 'gender']]
+[2026-07-03 19:19:29,689: INFO: preprocess: Splitting data into train and test sets...]
+[2026-07-03 19:19:29,691: INFO: preprocess: Categorical columns: ['ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'workex', 'specialisation']]
+[2026-07-03 19:19:29,691: INFO: preprocess: Numerical columns: ['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p']]
+[2026-07-03 19:19:29,691: INFO: preprocess: Fitting preprocessor on training data...]
+[2026-07-03 19:19:29,718: INFO: preprocess: Fitting label encoder on targets...]
+[2026-07-03 19:19:29,719: INFO: preprocess: Saving preprocessor to artifacts/data_preprocess/preprocessor.pkl]
+[2026-07-03 19:19:29,720: INFO: preprocess: Saving label encoder to artifacts/data_preprocess/labelencoder.pkl]
+[2026-07-03 19:19:29,721: INFO: preprocess: Saving preprocessed datasets to disk...]
+[2026-07-03 19:19:29,726: INFO: preprocess: Preprocessing completed successfully.]
+[2026-07-03 19:19:29,726: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-03 19:19:29,726: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-03 19:19:29,728: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 19:19:29,729: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 19:19:29,729: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 19:19:29,729: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 19:19:29,729: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-03 19:19:29,729: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-03 19:19:29,729: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-03 19:19:29,731: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-03 19:22:38,521: INFO: training: Optimization finished. Best accuracy score: 0.8895]
+[2026-07-03 19:22:38,521: INFO: training: Best classifier: xgboost]
+[2026-07-03 19:22:38,521: INFO: training: Filtering best parameters...]
+[2026-07-03 19:22:38,521: INFO: training: Filtered parameters: {'n_estimators': 400, 'max_depth': 7, 'learning_rate': 0.007293975028047602, 'subsample': 0.999939003420975, 'colsample_bytree': 0.8436377363437961, 'eval_metric': 'logloss'}]
+[2026-07-03 19:22:38,521: INFO: training: Training final model with best hyperparameters...]
+[2026-07-03 19:22:39,160: INFO: training: Saving final model to artifacts/model_trainer/model.pkl...]
+[2026-07-03 19:22:39,163: INFO: training: Model saved successfully.]
+[2026-07-03 19:22:39,163: INFO: main: >>>>>> stage Model Trainer stage completed <<<<<<
+
+x==========x]
+[2026-07-03 19:22:39,164: INFO: main: >>>>>> stage Model evaluation stage started <<<<<<]
+[2026-07-03 19:22:39,165: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-03 19:22:39,166: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-03 19:22:39,167: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-03 19:22:39,167: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-03 19:22:39,167: INFO: common: Directory created or already exists at: artifacts/model_evaluation]
+[2026-07-03 19:22:39,167: INFO: evaluation: Loading test datasets for evaluation...]
+[2026-07-03 19:22:39,169: INFO: evaluation: Loading trained model from artifacts/model_trainer/model.pkl...]
+[2026-07-03 19:22:39,172: INFO: evaluation: Generating predictions on test data...]
+[2026-07-03 19:22:39,174: INFO: evaluation: Calculating performance metrics...]
+[2026-07-03 19:22:39,183: INFO: evaluation: Evaluation Metrics: {'accuracy': 0.8372093023255814, 'precision': 0.8529411764705882, 'recall': 0.9354838709677419, 'f1_score': 0.8923076923076924}]
+[2026-07-03 19:22:39,183: INFO: evaluation: Saving evaluation metrics to artifacts/model_evaluation/metrics.json...]
+[2026-07-03 19:22:39,184: INFO: evaluation: Model evaluation completed successfully.]
+[2026-07-03 19:22:39,184: INFO: main: >>>>>> stage Model evaluation stage completed <<<<<<
+
+x==========x]
+[2026-07-08 16:07:29,231: INFO: api: log_start for app.py]
+[2026-07-08 16:08:45,990: INFO: api: log_start for app.py]
+[2026-07-08 16:08:45,993: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:08:45,996: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:08:45,997: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:08:45,997: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:09:39,592: INFO: api: log_start for app.py]
+[2026-07-08 16:09:39,595: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:09:39,596: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:09:39,596: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:09:39,596: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:09:59,509: INFO: api: log_start for app.py]
+[2026-07-08 16:09:59,511: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:09:59,512: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:09:59,513: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:09:59,513: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:11:26,976: INFO: api: log_start for app.py]
+[2026-07-08 16:11:26,978: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:11:26,979: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:11:26,980: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:11:26,980: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:12:42,090: INFO: api: log_start for app.py]
+[2026-07-08 16:12:42,093: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:12:42,094: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:12:42,095: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:12:42,095: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:14:28,114: INFO: api: log_start for app.py]
+[2026-07-08 16:14:28,116: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:14:28,117: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:14:28,118: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:14:28,118: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:17:54,208: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 16:19:38,762: INFO: api: log_start for app.py]
+[2026-07-08 16:19:38,764: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:19:38,765: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:19:38,765: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:19:38,765: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:20:13,534: INFO: api: log_start for app.py]
+[2026-07-08 16:20:13,536: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:20:13,537: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:20:13,538: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:20:13,538: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:23:09,737: INFO: api: log_start for app.py]
+[2026-07-08 16:23:09,739: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:23:09,740: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:23:09,741: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:23:09,741: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:29:51,507: INFO: api: log_start for app.py]
+[2026-07-08 16:29:51,509: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:29:51,511: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:29:51,511: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:29:51,511: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:39:44,264: INFO: api: log_start for app.py]
+[2026-07-08 16:39:44,266: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:39:44,267: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:39:44,268: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:39:44,268: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:40:20,270: INFO: api: log_start for app.py]
+[2026-07-08 16:40:20,272: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:40:20,273: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:40:20,273: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:40:20,273: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:41:30,450: INFO: api: log_start for app.py]
+[2026-07-08 16:41:30,452: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:41:30,453: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:41:30,454: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:41:30,454: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:47:13,532: INFO: api: log_start for app.py]
+[2026-07-08 16:47:13,535: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:47:13,537: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:47:13,537: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:47:13,537: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:48:51,098: INFO: api: log_start for app.py]
+[2026-07-08 16:48:51,101: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:48:51,102: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:48:51,103: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:48:51,103: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:55:36,181: INFO: api: log_start for app.py]
+[2026-07-08 16:55:36,184: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:55:36,185: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:55:36,186: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:55:36,186: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:57:10,510: INFO: api: log_start for app.py]
+[2026-07-08 16:57:10,512: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:57:10,513: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:57:10,513: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:57:10,513: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 16:59:43,616: INFO: api: log_start for app.py]
+[2026-07-08 16:59:43,619: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 16:59:43,620: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 16:59:43,620: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 16:59:43,620: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 17:02:56,374: INFO: api: log_start for app.py]
+[2026-07-08 17:02:56,377: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 17:02:56,378: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 17:02:56,378: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 17:02:56,379: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 17:08:47,918: INFO: api: log_start for app.py]
+[2026-07-08 17:08:47,921: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 17:08:47,922: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 17:08:47,922: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 17:08:47,922: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 17:15:29,783: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:15:29,790: INFO: api: try to run api predict call]
+[2026-07-08 17:15:29,791: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:15:29,819: ERROR: streamlit_app: 'prediction']
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/app/streamlit_app.py", line 98, in <module>
+    st.success(f"Prediction: {result['prediction']}")
+                              ~~~~~~^^^^^^^^^^^^^^
+KeyError: 'prediction'
+[2026-07-08 17:16:40,795: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:16:40,798: INFO: api: try to run api predict call]
+[2026-07-08 17:16:40,798: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:16:40,805: ERROR: streamlit_app: 'prediction']
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/app/streamlit_app.py", line 98, in <module>
+    st.success(f"Prediction: {result['prediction']}")
+                              ~~~~~~^^^^^^^^^^^^^^
+KeyError: 'prediction'
+[2026-07-08 17:17:22,572: INFO: api: log_start for app.py]
+[2026-07-08 17:17:22,575: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 17:17:22,576: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 17:17:22,576: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 17:17:22,576: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 17:18:33,994: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:18:34,004: INFO: api: try to run api predict call]
+[2026-07-08 17:18:34,004: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:18:34,020: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:19:12,725: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:19:12,727: INFO: api: try to run api predict call]
+[2026-07-08 17:19:12,727: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:19:12,733: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:19:15,059: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:19:15,061: INFO: api: try to run api predict call]
+[2026-07-08 17:19:15,061: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:19:15,068: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:19:21,312: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:19:21,313: INFO: api: try to run api predict call]
+[2026-07-08 17:19:21,313: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:19:21,319: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:19:22,093: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:19:22,095: INFO: api: try to run api predict call]
+[2026-07-08 17:19:22,095: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:19:22,102: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:19:29,396: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:19:29,401: INFO: api: try to run api predict call]
+[2026-07-08 17:19:29,401: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:19:29,412: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:19:30,009: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:19:30,011: INFO: api: try to run api predict call]
+[2026-07-08 17:19:30,011: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:19:30,017: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:19:41,175: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:19:41,176: INFO: api: try to run api predict call]
+[2026-07-08 17:19:41,177: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:19:41,182: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:20:01,685: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:20:01,687: INFO: api: try to run api predict call]
+[2026-07-08 17:20:01,687: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:20:01,692: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:20:01,894: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:20:01,896: INFO: api: try to run api predict call]
+[2026-07-08 17:20:01,896: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:20:01,902: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:20:02,107: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:20:02,109: INFO: api: try to run api predict call]
+[2026-07-08 17:20:02,109: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:20:02,116: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:20:22,124: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:20:22,127: INFO: api: try to run api predict call]
+[2026-07-08 17:20:22,127: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:20:22,133: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:20:22,841: INFO: streamlit_app: try to send post request]
+[2026-07-08 17:20:22,842: INFO: api: try to run api predict call]
+[2026-07-08 17:20:22,843: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-08 17:20:22,848: INFO: streamlit_app: post is sent successfully]
+[2026-07-08 17:36:41,955: INFO: api: log_start for app.py]
+[2026-07-08 17:36:41,957: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 17:36:41,958: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 17:36:41,958: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 17:36:41,959: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 17:37:52,755: INFO: api: log_start for app.py]
+[2026-07-08 17:37:52,757: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 17:37:52,758: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 17:37:52,759: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 17:37:52,759: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 17:38:18,282: WARNING: main: python-dotenv could not parse statement starting at line 1]
+[2026-07-08 17:38:18,283: WARNING: main: python-dotenv could not parse statement starting at line 2]
+[2026-07-08 17:38:18,283: WARNING: main: python-dotenv could not parse statement starting at line 5]
+[2026-07-08 17:38:18,284: WARNING: main: python-dotenv could not parse statement starting at line 8]
+[2026-07-08 17:39:20,010: WARNING: main: python-dotenv could not parse statement starting at line 1]
+[2026-07-08 17:39:20,010: WARNING: main: python-dotenv could not parse statement starting at line 2]
+[2026-07-08 17:39:20,010: WARNING: main: python-dotenv could not parse statement starting at line 5]
+[2026-07-08 17:39:20,010: WARNING: main: python-dotenv could not parse statement starting at line 8]
+[2026-07-08 17:39:49,629: INFO: api: log_start for app.py]
+[2026-07-08 17:39:49,631: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 17:39:49,633: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 17:39:49,633: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 17:39:49,634: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 17:40:01,398: WARNING: main: python-dotenv could not parse statement starting at line 1]
+[2026-07-08 17:40:01,398: WARNING: main: python-dotenv could not parse statement starting at line 2]
+[2026-07-08 17:40:01,398: WARNING: main: python-dotenv could not parse statement starting at line 5]
+[2026-07-08 17:40:01,398: WARNING: main: python-dotenv could not parse statement starting at line 8]
+[2026-07-08 18:10:00,211: INFO: api: log_start for app.py]
+[2026-07-08 18:10:00,213: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:10:00,214: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:10:00,215: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:10:00,215: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:10:22,202: INFO: api: log_start for app.py]
+[2026-07-08 18:10:22,204: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:10:22,205: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:10:22,206: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:10:22,206: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:10:41,106: INFO: api: log_start for app.py]
+[2026-07-08 18:10:41,108: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:10:41,109: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:10:41,110: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:10:41,110: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:10:57,032: INFO: api: log_start for app.py]
+[2026-07-08 18:10:57,034: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:10:57,035: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:10:57,036: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:10:57,036: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:11:14,971: INFO: api: log_start for app.py]
+[2026-07-08 18:11:14,973: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:11:14,974: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:11:14,975: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:11:14,975: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:28:10,480: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-08 18:28:10,480: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:28:10,482: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:28:10,483: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:28:10,484: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:28:10,484: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:28:10,484: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-08 18:28:10,484: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-08 18:28:10,484: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-08 18:28:10,485: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-08 18:28:12,224: INFO: ingestion: Data download request successful.]
+[2026-07-08 18:28:12,224: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-08 18:28:12,412: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-08 18:28:12,412: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:28:12,414: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:28:12,415: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:28:12,415: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:28:12,416: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:28:12,416: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-08 18:28:12,416: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-08 18:28:12,416: INFO: validation: Generating status file...]
+[2026-07-08 18:29:01,121: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-08 18:29:01,121: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:29:01,123: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:29:01,124: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:29:01,125: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:29:01,125: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:29:01,125: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-08 18:29:01,125: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-08 18:29:01,125: INFO: validation: Generating status file...]
+[2026-07-08 18:29:52,390: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-08 18:29:52,390: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:29:52,392: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:29:52,393: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:29:52,394: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:29:52,394: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:29:52,394: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-08 18:29:52,394: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-08 18:29:52,394: INFO: validation: Generating status file...]
+[2026-07-08 18:35:57,446: INFO: api: log_start for app.py]
+[2026-07-08 18:35:57,448: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:35:57,450: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:35:57,450: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:35:57,450: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:36:13,899: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-08 18:36:13,899: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:36:13,901: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:36:13,902: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:36:13,903: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:36:13,903: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:36:13,903: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-08 18:36:13,903: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-08 18:36:13,903: INFO: validation: Generating status file...]
+[2026-07-08 18:37:05,991: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-08 18:37:05,991: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:37:05,993: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:37:05,994: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:37:05,994: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:37:05,995: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:37:05,995: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-08 18:37:05,995: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-08 18:37:05,995: INFO: validation: Generating status file...]
+[2026-07-08 18:37:05,995: INFO: validation: Status file generated successfully.]
+[2026-07-08 18:37:07,623: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-08 18:37:07,624: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:37:07,625: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:37:07,626: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:37:07,627: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:37:07,627: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:37:07,627: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-08 18:37:07,627: INFO: stage_3_preprocess: running Datapreprocess instance and try to run stage 2 ]
+[2026-07-08 18:37:07,627: INFO: preprocess: Loading CSV data...]
+[2026-07-08 18:37:07,642: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-08 18:37:07,642: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-08 18:37:07,645: INFO: preprocess: Dropping columns: ['sl_no', 'salary', 'gender']]
+[2026-07-08 18:37:07,645: INFO: preprocess: Splitting data into train and test sets...]
+[2026-07-08 18:37:07,647: INFO: preprocess: Categorical columns: ['ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'workex', 'specialisation']]
+[2026-07-08 18:37:07,647: INFO: preprocess: Numerical columns: ['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p']]
+[2026-07-08 18:37:07,647: INFO: preprocess: Fitting preprocessor on training data...]
+[2026-07-08 18:37:07,666: INFO: preprocess: Fitting label encoder on targets...]
+[2026-07-08 18:37:07,666: INFO: preprocess: Saving preprocessor to artifacts/data_preprocess/preprocessor.pkl]
+[2026-07-08 18:37:07,667: INFO: preprocess: Saving label encoder to artifacts/data_preprocess/labelencoder.pkl]
+[2026-07-08 18:37:07,668: INFO: preprocess: Saving preprocessed datasets to disk...]
+[2026-07-08 18:37:07,672: INFO: preprocess: Preprocessing completed successfully.]
+[2026-07-08 18:41:03,743: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-08 18:41:03,744: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:41:03,746: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:41:03,747: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:41:03,747: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:41:03,747: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:41:03,748: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-08 18:41:03,748: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-08 18:41:03,748: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-08 18:41:03,748: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-08 18:41:05,753: INFO: ingestion: Data download request successful.]
+[2026-07-08 18:41:05,754: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-08 18:41:05,938: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-08 18:41:05,938: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:41:05,940: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:41:05,940: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:41:05,941: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:41:05,941: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:41:05,941: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-08 18:41:05,941: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-08 18:41:05,941: INFO: validation: Generating status file...]
+[2026-07-08 18:41:05,941: INFO: validation: Status file generated successfully.]
+[2026-07-08 18:41:07,541: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-08 18:41:07,541: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:41:07,543: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:41:07,544: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:41:07,545: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:41:07,545: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:41:07,545: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-08 18:41:07,545: INFO: stage_3_preprocess: running Datapreprocess instance and try to run stage 2 ]
+[2026-07-08 18:41:07,545: INFO: preprocess: Loading CSV data...]
+[2026-07-08 18:41:07,555: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-08 18:41:07,555: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-08 18:41:07,556: INFO: preprocess: Dropping columns: ['sl_no', 'salary', 'gender']]
+[2026-07-08 18:41:07,556: INFO: preprocess: Splitting data into train and test sets...]
+[2026-07-08 18:41:07,558: INFO: preprocess: Categorical columns: ['ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'workex', 'specialisation']]
+[2026-07-08 18:41:07,558: INFO: preprocess: Numerical columns: ['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p']]
+[2026-07-08 18:41:07,558: INFO: preprocess: Fitting preprocessor on training data...]
+[2026-07-08 18:41:07,576: INFO: preprocess: Fitting label encoder on targets...]
+[2026-07-08 18:41:07,577: INFO: preprocess: Saving preprocessor to artifacts/data_preprocess/preprocessor.pkl]
+[2026-07-08 18:41:07,578: INFO: preprocess: Saving label encoder to artifacts/data_preprocess/labelencoder.pkl]
+[2026-07-08 18:41:07,578: INFO: preprocess: Saving preprocessed datasets to disk...]
+[2026-07-08 18:41:07,583: INFO: preprocess: Preprocessing completed successfully.]
+[2026-07-08 18:41:09,777: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-08 18:41:09,777: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:41:09,779: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:41:09,780: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:41:09,781: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:41:09,781: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:41:09,781: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-08 18:41:09,781: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-08 18:41:09,781: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-08 18:41:09,791: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-08 18:42:14,152: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-08 18:42:14,152: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-08 18:42:14,154: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:42:14,155: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:42:14,155: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:42:14,155: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:42:14,156: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-08 18:42:14,156: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-08 18:42:14,156: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-08 18:42:14,165: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-08 18:42:30,840: INFO: training: Optimization finished. Best accuracy score: 0.8663]
+[2026-07-08 18:42:30,840: INFO: training: Best classifier: xgboost]
+[2026-07-08 18:42:30,840: INFO: training: Filtering best parameters...]
+[2026-07-08 18:42:30,840: INFO: training: Filtered parameters: {'n_estimators': 700, 'max_depth': 4, 'learning_rate': 0.008937970440226655, 'subsample': 0.8807061737085748, 'colsample_bytree': 0.7478122739127984, 'eval_metric': 'logloss'}]
+[2026-07-08 18:42:30,840: INFO: training: Training final model with best hyperparameters...]
+[2026-07-08 18:42:31,662: INFO: training: Saving final model to artifacts/model_trainer/model.pkl...]
+[2026-07-08 18:42:31,666: INFO: training: Model saved successfully.]
+[2026-07-08 18:43:08,455: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-08 18:43:08,456: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-08 18:43:08,457: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 18:43:08,458: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 18:43:08,459: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 18:43:08,459: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 18:43:08,459: INFO: common: Directory created or already exists at: artifacts/model_evaluation]
+[2026-07-08 18:43:08,459: INFO: evaluation: Loading test datasets for evaluation...]
+[2026-07-08 18:43:08,467: INFO: evaluation: Loading trained model from artifacts/model_trainer/model.pkl...]
+[2026-07-08 18:43:08,503: INFO: evaluation: Generating predictions on test data...]
+[2026-07-08 18:43:08,505: INFO: evaluation: Calculating performance metrics...]
+[2026-07-08 18:43:08,522: INFO: evaluation: Evaluation Metrics: {'accuracy': 0.813953488372093, 'precision': 0.8285714285714286, 'recall': 0.9354838709677419, 'f1_score': 0.8787878787878788}]
+[2026-07-08 18:43:08,522: INFO: evaluation: Saving evaluation metrics to artifacts/model_evaluation/metrics.json...]
+[2026-07-08 18:43:08,522: INFO: evaluation: Model evaluation completed successfully.]
+[2026-07-08 19:05:27,241: INFO: api: log_start for app.py]
+[2026-07-08 19:05:27,245: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 19:05:27,246: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 19:05:27,248: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 19:05:27,248: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 19:05:32,447: INFO: api: log_start for app.py]
+[2026-07-08 19:05:32,449: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 19:05:32,450: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 19:05:32,450: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 19:05:32,451: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 19:05:35,016: INFO: api: log_start for app.py]
+[2026-07-08 19:05:35,018: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 19:05:35,019: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 19:05:35,020: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 19:05:35,020: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 19:32:03,902: INFO: api: log_start for app.py]
+[2026-07-08 19:32:03,905: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 19:32:03,906: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 19:32:03,907: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 19:32:03,907: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 19:40:22,496: INFO: api: log_start for app.py]
+[2026-07-08 19:40:22,498: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 19:40:22,500: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 19:40:22,500: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 19:40:22,501: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-08 19:40:33,836: INFO: api: log_start for app.py]
+[2026-07-08 19:40:33,838: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-08 19:40:33,840: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-08 19:40:33,840: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-08 19:40:33,841: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 01:57:10,445: INFO: api: log_start for app.py]
+[2026-07-18 01:57:10,448: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 01:57:10,451: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 01:57:10,451: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 01:57:10,452: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 01:57:51,387: INFO: api: log_start for app.py]
+[2026-07-18 01:57:51,389: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 01:57:51,390: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 01:57:51,391: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 01:57:51,391: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 01:58:16,002: INFO: api: log_start for app.py]
+[2026-07-18 01:58:16,004: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 01:58:16,005: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 01:58:16,006: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 01:58:16,006: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 04:51:59,681: INFO: api: log_start for app.py]
+[2026-07-18 04:51:59,682: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 04:51:59,683: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 04:51:59,684: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 04:51:59,684: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 04:52:00,372: INFO: server: Started server process [12938]]
+[2026-07-18 04:52:00,372: INFO: on: Waiting for application startup.]
+[2026-07-18 04:52:00,372: INFO: on: Application startup complete.]
+[2026-07-18 04:52:00,372: INFO: server: Uvicorn running on http://0.0.0.0:8501 (Press CTRL+C to quit)]
+[2026-07-18 05:00:38,086: INFO: server: Shutting down]
+[2026-07-18 05:00:38,190: INFO: on: Waiting for application shutdown.]
+[2026-07-18 05:00:38,190: INFO: on: Application shutdown complete.]
+[2026-07-18 05:00:38,191: INFO: server: Finished server process [12938]]
+[2026-07-18 05:00:59,533: INFO: streamlit_app: try to send post request]
+[2026-07-18 05:00:59,545: ERROR: streamlit_app: HTTPConnectionPool(host='0.0.0.0', port=8501): Max retries exceeded with url: /predict (Caused by NewConnectionError("<urllib3.connection.HTTPConnection object at 0x1060a3770>: Failed to establish a new connection: [Errno 49] Can't assign requested address"))]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+OSError: [Errno 49] Can't assign requested address
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1353, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1113, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1057, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x1060a3770>: Failed to establish a new connection: [Errno 49] Can't assign requested address
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='0.0.0.0', port=8501): Max retries exceeded with url: /predict (Caused by NewConnectionError("<urllib3.connection.HTTPConnection object at 0x1060a3770>: Failed to establish a new connection: [Errno 49] Can't assign requested address"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/app/streamlit_app.py", line 95, in <module>
+    response = requests.post(
+        API_URL,
+        json=input_data
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='0.0.0.0', port=8501): Max retries exceeded with url: /predict (Caused by NewConnectionError("<urllib3.connection.HTTPConnection object at 0x1060a3770>: Failed to establish a new connection: [Errno 49] Can't assign requested address"))
+[2026-07-18 05:03:06,694: INFO: streamlit_app: try to send post request]
+[2026-07-18 05:03:06,707: ERROR: streamlit_app: <html><title>403: Forbidden</title><body>403: Forbidden</body></html>]
+[2026-07-18 05:03:45,860: INFO: streamlit_app: try to send post request]
+[2026-07-18 05:03:45,865: ERROR: streamlit_app: <html><title>403: Forbidden</title><body>403: Forbidden</body></html>]
+[2026-07-18 05:05:14,090: INFO: streamlit_app: try to send post request]
+[2026-07-18 05:05:14,093: ERROR: streamlit_app: <html><title>403: Forbidden</title><body>403: Forbidden</body></html>]
+[2026-07-18 05:06:26,893: INFO: streamlit_app: try to send post request]
+[2026-07-18 05:06:26,907: ERROR: streamlit_app: <html><title>403: Forbidden</title><body>403: Forbidden</body></html>]
+[2026-07-18 05:08:44,488: INFO: streamlit_app: try to send post request]
+[2026-07-18 05:08:44,501: ERROR: streamlit_app: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x108a5fe00>: Failed to establish a new connection: [Errno 61] Connection refused'))]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1353, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1113, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1057, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x108a5fe00>: Failed to establish a new connection: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x108a5fe00>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/app/streamlit_app.py", line 95, in <module>
+    response = requests.post(
+        API_URL,
+        json=input_data
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x108a5fe00>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[2026-07-18 05:09:36,754: INFO: streamlit_app: try to send post request]
+[2026-07-18 05:09:36,761: ERROR: streamlit_app: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106b50050>: Failed to establish a new connection: [Errno 61] Connection refused'))]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1353, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1113, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1057, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x106b50050>: Failed to establish a new connection: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106b50050>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/app/streamlit_app.py", line 95, in <module>
+    response = requests.post(
+        API_URL,
+        json=input_data
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x106b50050>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[2026-07-18 05:12:53,041: INFO: api: log_start for app.py]
+[2026-07-18 05:12:53,044: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 05:12:53,045: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 05:12:53,046: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 05:12:53,046: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 05:13:07,613: INFO: api: log_start for app.py]
+[2026-07-18 05:13:07,614: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 05:13:07,614: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 05:13:07,614: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 05:13:07,614: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 05:13:42,985: INFO: api: log_start for app.py]
+[2026-07-18 05:13:42,987: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 05:13:42,988: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 05:13:42,989: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 05:13:42,989: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 05:14:23,387: INFO: streamlit_app: try to send post request]
+[2026-07-18 05:14:23,397: ERROR: streamlit_app: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10908a510>: Failed to establish a new connection: [Errno 61] Connection refused'))]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x10908a510>: Failed to establish a new connection: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10908a510>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/app/streamlit_app.py", line 95, in <module>
+    response = requests.post(
+        API_URL,
+        json=input_data
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10908a510>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[2026-07-18 05:16:03,595: INFO: api: log_start for app.py]
+[2026-07-18 05:16:03,596: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 05:16:03,597: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 05:16:03,597: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 05:16:03,597: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 05:16:18,950: INFO: streamlit_app: try to send post request]
+[2026-07-18 05:16:18,959: INFO: api: try to run api predict call]
+[2026-07-18 05:16:18,959: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 05:16:18,985: INFO: streamlit_app: post is sent successfully]
+[2026-07-18 05:26:38,200: INFO: streamlit_app: try to send post request]
+[2026-07-18 05:26:38,208: INFO: api: try to run api predict call]
+[2026-07-18 05:26:38,208: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 05:26:38,216: INFO: streamlit_app: post is sent successfully]
+[2026-07-18 17:59:13,580: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-18 17:59:13,581: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 17:59:13,583: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-18 17:59:13,583: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 17:59:16,133: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-18 17:59:16,133: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 17:59:16,838: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-18 17:59:16,838: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 17:59:16,839: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-18 17:59:16,839: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-18 17:59:16,839: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 17:59:16,841: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 17:59:16,843: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 17:59:16,844: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 17:59:16,844: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 17:59:16,845: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 17:59:16,845: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-18 17:59:16,845: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 17:59:16,845: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-18 17:59:19,530: INFO: ingestion: Data download request successful.]
+[2026-07-18 17:59:19,531: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-18 17:59:19,532: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-18 17:59:19,532: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-18 17:59:19,534: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 17:59:19,535: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 17:59:19,536: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 17:59:19,536: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 17:59:19,536: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-18 17:59:19,536: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-18 17:59:19,536: INFO: validation: Generating status file...]
+[2026-07-18 17:59:19,536: INFO: validation: Status file generated successfully.]
+[2026-07-18 17:59:19,537: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-18 17:59:19,537: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-18 17:59:19,538: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 17:59:19,539: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 17:59:19,540: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 17:59:19,540: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 17:59:19,540: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-18 17:59:19,540: INFO: stage_3_preprocess: running Datapreprocess instance and try to run stage 2 ]
+[2026-07-18 17:59:19,540: INFO: preprocess: Loading CSV data...]
+[2026-07-18 17:59:19,558: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-18 17:59:19,558: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-18 17:59:19,562: INFO: preprocess: Dropping columns: ['sl_no', 'salary', 'gender']]
+[2026-07-18 17:59:19,563: INFO: preprocess: Splitting data into train and test sets...]
+[2026-07-18 17:59:19,566: INFO: preprocess: Categorical columns: ['ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'workex', 'specialisation']]
+[2026-07-18 17:59:19,566: INFO: preprocess: Numerical columns: ['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p']]
+[2026-07-18 17:59:19,566: INFO: preprocess: Fitting preprocessor on training data...]
+[2026-07-18 17:59:19,587: INFO: preprocess: Fitting label encoder on targets...]
+[2026-07-18 17:59:19,588: INFO: preprocess: Saving preprocessor to artifacts/data_preprocess/preprocessor.pkl]
+[2026-07-18 17:59:19,589: INFO: preprocess: Saving label encoder to artifacts/data_preprocess/labelencoder.pkl]
+[2026-07-18 17:59:19,590: INFO: preprocess: Saving preprocessed datasets to disk...]
+[2026-07-18 17:59:19,595: INFO: preprocess: Preprocessing completed successfully.]
+[2026-07-18 17:59:19,595: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-18 17:59:19,595: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-18 17:59:19,597: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 17:59:19,598: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 17:59:19,598: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 17:59:19,598: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 17:59:19,599: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-18 17:59:19,599: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-18 17:59:19,599: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-18 17:59:19,600: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-18 17:59:19,600: ERROR: main: name 'mlflow' is not defined]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/main.py", line 48, in <module>
+    model_training.main()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/stage_4_training.py", line 16, in main
+    model_training_instance.run_optuna()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/training.py", line 98, in run_optuna
+    with mlflow.start_run():
+         ^^^^^^
+NameError: name 'mlflow' is not defined
+[2026-07-18 18:00:48,193: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-18 18:00:48,193: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:00:48,193: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-18 18:00:48,193: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:00:49,403: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-18 18:00:49,403: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:00:55,425: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-18 18:00:55,425: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:00:55,425: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-18 18:00:55,425: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-18 18:00:55,425: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 18:00:55,427: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:00:55,428: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:00:55,429: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:00:55,429: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:00:55,429: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:00:55,429: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-18 18:00:55,429: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:00:55,429: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-18 18:00:58,054: INFO: ingestion: Data download request successful.]
+[2026-07-18 18:00:58,054: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-18 18:00:58,056: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:00:58,056: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-18 18:00:58,057: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:00:58,058: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:00:58,059: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:00:58,059: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:00:58,059: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-18 18:00:58,059: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-18 18:00:58,059: INFO: validation: Generating status file...]
+[2026-07-18 18:00:58,059: INFO: validation: Status file generated successfully.]
+[2026-07-18 18:00:58,060: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:00:58,060: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-18 18:00:58,062: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:00:58,062: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:00:58,063: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:00:58,063: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:00:58,063: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-18 18:00:58,063: INFO: stage_3_preprocess: running Datapreprocess instance and try to run stage 2 ]
+[2026-07-18 18:00:58,063: INFO: preprocess: Loading CSV data...]
+[2026-07-18 18:00:58,072: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-18 18:00:58,072: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-18 18:00:58,074: INFO: preprocess: Dropping columns: ['sl_no', 'salary', 'gender']]
+[2026-07-18 18:00:58,074: INFO: preprocess: Splitting data into train and test sets...]
+[2026-07-18 18:00:58,076: INFO: preprocess: Categorical columns: ['ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'workex', 'specialisation']]
+[2026-07-18 18:00:58,076: INFO: preprocess: Numerical columns: ['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p']]
+[2026-07-18 18:00:58,076: INFO: preprocess: Fitting preprocessor on training data...]
+[2026-07-18 18:00:58,092: INFO: preprocess: Fitting label encoder on targets...]
+[2026-07-18 18:00:58,092: INFO: preprocess: Saving preprocessor to artifacts/data_preprocess/preprocessor.pkl]
+[2026-07-18 18:00:58,093: INFO: preprocess: Saving label encoder to artifacts/data_preprocess/labelencoder.pkl]
+[2026-07-18 18:00:58,094: INFO: preprocess: Saving preprocessed datasets to disk...]
+[2026-07-18 18:00:58,098: INFO: preprocess: Preprocessing completed successfully.]
+[2026-07-18 18:00:58,098: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:00:58,099: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-18 18:00:58,100: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:00:58,101: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:00:58,102: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:00:58,102: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:00:58,102: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-18 18:00:58,102: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-18 18:00:58,102: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-18 18:00:58,104: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-18 18:01:16,590: ERROR: main: name 'best_model_name' is not defined]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/main.py", line 48, in <module>
+    model_training.main()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/stage_4_training.py", line 16, in main
+    model_training_instance.run_optuna()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/training.py", line 105, in run_optuna
+    mlflow.log_param('model_name',best_model_name)
+                                  ^^^^^^^^^^^^^^^
+NameError: name 'best_model_name' is not defined
+[2026-07-18 18:04:06,553: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-18 18:04:06,553: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:04:06,553: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-18 18:04:06,553: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:04:07,784: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-18 18:04:07,784: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:04:08,778: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-18 18:04:08,778: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:04:08,779: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-18 18:04:08,779: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-18 18:04:08,779: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 18:04:08,781: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:04:08,782: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:04:08,782: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:04:08,782: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:04:08,782: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:04:08,783: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-18 18:04:08,783: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:04:08,783: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-18 18:05:08,790: ERROR: ingestion: Exception occurred during data ingestion.]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+OSError: [Errno 65] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x1443ac830>: Failed to establish a new connection: [Errno 65] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1443ac830>: Failed to establish a new connection: [Errno 65] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/ingestion.py", line 19, in download_and_save_data
+    response = requests.get(self.config.url, timeout=self.config.request_timeout)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1443ac830>: Failed to establish a new connection: [Errno 65] No route to host'))
+[2026-07-18 18:05:08,797: ERROR: main: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1443ac830>: Failed to establish a new connection: [Errno 65] No route to host'))]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+OSError: [Errno 65] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x1443ac830>: Failed to establish a new connection: [Errno 65] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1443ac830>: Failed to establish a new connection: [Errno 65] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/main.py", line 13, in <module>
+    data_ingestion.main()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/stage_1_ingestion.py", line 16, in main
+    Data_ingest_instance.download_and_save_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/ingestion.py", line 34, in download_and_save_data
+    raise e
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/ingestion.py", line 19, in download_and_save_data
+    response = requests.get(self.config.url, timeout=self.config.request_timeout)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/.venv/lib/python3.14/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1443ac830>: Failed to establish a new connection: [Errno 65] No route to host'))
+[2026-07-18 18:08:03,404: INFO: api: log_start for app.py]
+[2026-07-18 18:08:03,406: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:08:03,407: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:08:03,408: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:08:03,408: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:09:40,840: INFO: streamlit_app: try to send post request]
+[2026-07-18 18:09:40,845: ERROR: streamlit_app: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11005c1a0>: Failed to establish a new connection: [Errno 61] Connection refused'))]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x11005c1a0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11005c1a0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/app/streamlit_app.py", line 96, in <module>
+    response = requests.post(
+        API_URL,
+        json=input_data
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11005c1a0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[2026-07-18 18:14:13,805: INFO: api: try to run api predict call]
+[2026-07-18 18:14:13,805: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 18:15:03,810: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-18 18:15:03,810: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:15:03,810: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-18 18:15:03,810: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:15:05,066: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-18 18:15:05,066: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:15:06,041: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-18 18:15:06,041: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:15:06,041: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-18 18:15:06,041: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-18 18:15:06,042: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 18:15:06,043: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:15:06,044: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:15:06,045: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:15:06,045: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:15:06,045: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:15:06,045: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-18 18:15:06,045: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:15:06,045: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-18 18:15:07,826: INFO: ingestion: Data download request successful.]
+[2026-07-18 18:15:07,827: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-18 18:15:07,830: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:15:07,830: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-18 18:15:07,833: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:15:07,834: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:15:07,835: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:15:07,836: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:15:07,836: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-18 18:15:07,836: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-18 18:15:07,836: INFO: validation: Generating status file...]
+[2026-07-18 18:15:07,836: INFO: validation: Status file generated successfully.]
+[2026-07-18 18:15:07,836: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:15:07,837: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-18 18:15:07,839: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:15:07,840: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:15:07,841: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:15:07,841: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:15:07,841: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-18 18:15:07,841: INFO: stage_3_preprocess: running Datapreprocess instance and try to run stage 2 ]
+[2026-07-18 18:15:07,841: INFO: preprocess: Loading CSV data...]
+[2026-07-18 18:15:07,855: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-18 18:15:07,855: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-18 18:15:07,857: INFO: preprocess: Dropping columns: ['sl_no', 'salary', 'gender']]
+[2026-07-18 18:15:07,857: INFO: preprocess: Splitting data into train and test sets...]
+[2026-07-18 18:15:07,859: INFO: preprocess: Categorical columns: ['ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'workex', 'specialisation']]
+[2026-07-18 18:15:07,859: INFO: preprocess: Numerical columns: ['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p']]
+[2026-07-18 18:15:07,859: INFO: preprocess: Fitting preprocessor on training data...]
+[2026-07-18 18:15:07,877: INFO: preprocess: Fitting label encoder on targets...]
+[2026-07-18 18:15:07,878: INFO: preprocess: Saving preprocessor to artifacts/data_preprocess/preprocessor.pkl]
+[2026-07-18 18:15:07,879: INFO: preprocess: Saving label encoder to artifacts/data_preprocess/labelencoder.pkl]
+[2026-07-18 18:15:07,880: INFO: preprocess: Saving preprocessed datasets to disk...]
+[2026-07-18 18:15:07,885: INFO: preprocess: Preprocessing completed successfully.]
+[2026-07-18 18:15:07,885: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:15:07,885: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-18 18:15:07,887: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:15:07,888: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:15:07,888: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:15:07,888: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:15:07,888: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-18 18:15:07,888: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-18 18:15:07,889: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-18 18:15:07,891: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-18 18:15:34,268: ERROR: main: cannot access local variable 'best_params' where it is not associated with a value]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/main.py", line 48, in <module>
+    model_training.main()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/stage_4_training.py", line 16, in main
+    model_training_instance.run_optuna()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/training.py", line 105, in run_optuna
+    mlflow.log_param('model_name',best_params['classifier'])
+                                  ^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'best_params' where it is not associated with a value
+[2026-07-18 18:17:04,211: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-18 18:17:04,212: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:17:04,212: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-18 18:17:04,212: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:17:05,439: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-18 18:17:05,439: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:17:06,427: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-18 18:17:06,428: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:17:06,428: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-18 18:17:06,428: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-18 18:17:06,428: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 18:17:06,430: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:17:06,431: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:17:06,432: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:17:06,432: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:17:06,432: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:17:06,432: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-18 18:17:06,432: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:17:06,432: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-18 18:17:08,192: INFO: ingestion: Data download request successful.]
+[2026-07-18 18:17:08,193: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-18 18:17:08,196: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:17:08,196: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-18 18:17:08,199: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:17:08,200: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:17:08,201: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:17:08,201: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:17:08,201: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-18 18:17:08,201: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-18 18:17:08,201: INFO: validation: Generating status file...]
+[2026-07-18 18:17:08,202: INFO: validation: Status file generated successfully.]
+[2026-07-18 18:17:08,202: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:17:08,202: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-18 18:17:08,205: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:17:08,206: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:17:08,207: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:17:08,207: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:17:08,208: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-18 18:17:08,208: INFO: stage_3_preprocess: running Datapreprocess instance and try to run stage 2 ]
+[2026-07-18 18:17:08,208: INFO: preprocess: Loading CSV data...]
+[2026-07-18 18:17:08,220: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-18 18:17:08,220: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-18 18:17:08,222: INFO: preprocess: Dropping columns: ['sl_no', 'salary', 'gender']]
+[2026-07-18 18:17:08,222: INFO: preprocess: Splitting data into train and test sets...]
+[2026-07-18 18:17:08,224: INFO: preprocess: Categorical columns: ['ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'workex', 'specialisation']]
+[2026-07-18 18:17:08,224: INFO: preprocess: Numerical columns: ['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p']]
+[2026-07-18 18:17:08,224: INFO: preprocess: Fitting preprocessor on training data...]
+[2026-07-18 18:17:08,242: INFO: preprocess: Fitting label encoder on targets...]
+[2026-07-18 18:17:08,242: INFO: preprocess: Saving preprocessor to artifacts/data_preprocess/preprocessor.pkl]
+[2026-07-18 18:17:08,244: INFO: preprocess: Saving label encoder to artifacts/data_preprocess/labelencoder.pkl]
+[2026-07-18 18:17:08,245: INFO: preprocess: Saving preprocessed datasets to disk...]
+[2026-07-18 18:17:08,249: INFO: preprocess: Preprocessing completed successfully.]
+[2026-07-18 18:17:08,249: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:17:08,249: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-18 18:17:08,252: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:17:08,253: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:17:08,253: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:17:08,253: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:17:08,253: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-18 18:17:08,253: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-18 18:17:08,253: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-18 18:17:08,255: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-18 18:17:24,585: ERROR: main: cannot access local variable 'best_params' where it is not associated with a value]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/main.py", line 48, in <module>
+    model_training.main()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/stage_4_training.py", line 16, in main
+    model_training_instance.run_optuna()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/training.py", line 105, in run_optuna
+    mlflow.log_param('model_name',best_params['classifier'])
+                                  ^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'best_params' where it is not associated with a value
+[2026-07-18 18:18:13,502: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-18 18:18:13,503: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:18:13,503: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-18 18:18:13,503: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:18:14,745: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-18 18:18:14,745: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:18:15,705: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-18 18:18:15,706: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:18:15,706: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-18 18:18:15,706: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-18 18:18:15,706: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 18:18:15,708: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:18:15,709: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:18:15,709: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:18:15,710: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:18:15,710: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:18:15,710: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-18 18:18:15,710: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:18:15,710: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-18 18:18:18,247: INFO: ingestion: Data download request successful.]
+[2026-07-18 18:18:18,249: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-18 18:18:18,252: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:18:18,253: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-18 18:18:18,255: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:18:18,257: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:18:18,258: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:18:18,258: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:18:18,258: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-18 18:18:18,258: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-18 18:18:18,258: INFO: validation: Generating status file...]
+[2026-07-18 18:18:18,259: INFO: validation: Status file generated successfully.]
+[2026-07-18 18:18:18,259: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:18:18,259: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-18 18:18:18,261: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:18:18,262: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:18:18,262: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:18:18,262: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:18:18,262: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-18 18:18:18,262: INFO: stage_3_preprocess: running Datapreprocess instance and try to run stage 2 ]
+[2026-07-18 18:18:18,263: INFO: preprocess: Loading CSV data...]
+[2026-07-18 18:18:18,274: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-18 18:18:18,274: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-18 18:18:18,275: INFO: preprocess: Dropping columns: ['sl_no', 'salary', 'gender']]
+[2026-07-18 18:18:18,276: INFO: preprocess: Splitting data into train and test sets...]
+[2026-07-18 18:18:18,278: INFO: preprocess: Categorical columns: ['ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'workex', 'specialisation']]
+[2026-07-18 18:18:18,278: INFO: preprocess: Numerical columns: ['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p']]
+[2026-07-18 18:18:18,278: INFO: preprocess: Fitting preprocessor on training data...]
+[2026-07-18 18:18:18,295: INFO: preprocess: Fitting label encoder on targets...]
+[2026-07-18 18:18:18,295: INFO: preprocess: Saving preprocessor to artifacts/data_preprocess/preprocessor.pkl]
+[2026-07-18 18:18:18,297: INFO: preprocess: Saving label encoder to artifacts/data_preprocess/labelencoder.pkl]
+[2026-07-18 18:18:18,297: INFO: preprocess: Saving preprocessed datasets to disk...]
+[2026-07-18 18:18:18,301: INFO: preprocess: Preprocessing completed successfully.]
+[2026-07-18 18:18:18,301: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:18:18,302: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-18 18:18:18,303: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:18:18,304: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:18:18,305: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:18:18,305: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:18:18,305: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-18 18:18:18,305: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-18 18:18:18,305: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-18 18:18:18,306: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-18 18:18:34,037: ERROR: main: name 'model' is not defined]
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/main.py", line 48, in <module>
+    model_training.main()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/Pipeline/stage_4_training.py", line 16, in main
+    model_training_instance.run_optuna()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/src/components/training.py", line 117, in run_optuna
+    mlflow.xgboost.log_model(model, "model")
+                             ^^^^^
+NameError: name 'model' is not defined
+[2026-07-18 18:45:53,429: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-18 18:45:53,429: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:45:53,429: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-18 18:45:53,429: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:45:54,679: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-18 18:45:54,679: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:48:01,376: INFO: stage_1_ingestion: ####### STAGE 1 START #######]
+[2026-07-18 18:48:01,377: INFO: stage_1_ingestion: ########## STAGE 1 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:48:01,377: INFO: stage_2_validation: ####### STAGE 2 START #######]
+[2026-07-18 18:48:01,377: INFO: stage_2_validation: ########## STAGE 2 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:48:02,645: INFO: stage_3_preprocess: ####### STAGE 3 START #######]
+[2026-07-18 18:48:02,646: INFO: stage_3_preprocess: ########## STAGE 3 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:48:03,617: INFO: stage_4_training: ####### STAGE 4 START #######]
+[2026-07-18 18:48:03,617: INFO: stage_4_training: ########## STAGE 4 COMPLETED SUCCESSFULLY #######]
+[2026-07-18 18:48:03,618: INFO: stage_5_evaluation: ##### STAGE 5 START ######]
+[2026-07-18 18:48:03,618: INFO: stage_5_evaluation: ############## STAGE 5 COMPLETED ##############]
+[2026-07-18 18:48:03,618: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 18:48:03,620: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:48:03,621: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:48:03,621: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:48:03,622: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:48:03,622: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:48:03,622: INFO: stage_1_ingestion: running DataINgestion instance and try to run stage 1 ]
+[2026-07-18 18:48:03,622: INFO: common: Directory created or already exists at: artifacts/data_ingestion]
+[2026-07-18 18:48:03,622: INFO: ingestion: Sending GET request to retrieve data from: https://raw.githubusercontent.com/MainakRepositor/Datasets/f20fd12b065e2aa8d4ee436e984d275655b2de50/Placement_Data_Full_Class.csv]
+[2026-07-18 18:48:05,584: INFO: ingestion: Data download request successful.]
+[2026-07-18 18:48:05,585: INFO: ingestion: Data file saved successfully to artifacts/data_ingestion/data.csv]
+[2026-07-18 18:48:05,588: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:48:05,588: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-07-18 18:48:05,591: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:48:05,593: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:48:05,594: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:48:05,594: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:48:05,594: INFO: stage_2_validation: running Datavalidation instance and try to run stage 2 ]
+[2026-07-18 18:48:05,594: INFO: validation: artifacts/data_ingestion/data.csv file checked successfully.]
+[2026-07-18 18:48:05,594: INFO: validation: Generating status file...]
+[2026-07-18 18:48:05,595: INFO: validation: Status file generated successfully.]
+[2026-07-18 18:48:05,595: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:48:05,595: INFO: main: >>>>>> stage Data Preprocess stage started <<<<<<]
+[2026-07-18 18:48:05,598: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:48:05,599: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:48:05,600: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:48:05,600: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:48:05,600: INFO: common: Directory created or already exists at: artifacts/data_preprocess]
+[2026-07-18 18:48:05,601: INFO: stage_3_preprocess: running Datapreprocess instance and try to run stage 2 ]
+[2026-07-18 18:48:05,601: INFO: preprocess: Loading CSV data...]
+[2026-07-18 18:48:05,616: INFO: preprocess: DataFrame loaded successfully.]
+[2026-07-18 18:48:05,616: INFO: preprocess: Starting preprocessing: dropping duplicates...]
+[2026-07-18 18:48:05,618: INFO: preprocess: Dropping columns: ['sl_no', 'salary', 'gender']]
+[2026-07-18 18:48:05,618: INFO: preprocess: Splitting data into train and test sets...]
+[2026-07-18 18:48:05,620: INFO: preprocess: Categorical columns: ['ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'workex', 'specialisation']]
+[2026-07-18 18:48:05,620: INFO: preprocess: Numerical columns: ['ssc_p', 'hsc_p', 'degree_p', 'etest_p', 'mba_p']]
+[2026-07-18 18:48:05,620: INFO: preprocess: Fitting preprocessor on training data...]
+[2026-07-18 18:48:05,641: INFO: preprocess: Fitting label encoder on targets...]
+[2026-07-18 18:48:05,641: INFO: preprocess: Saving preprocessor to artifacts/data_preprocess/preprocessor.pkl]
+[2026-07-18 18:48:05,643: INFO: preprocess: Saving label encoder to artifacts/data_preprocess/labelencoder.pkl]
+[2026-07-18 18:48:05,643: INFO: preprocess: Saving preprocessed datasets to disk...]
+[2026-07-18 18:48:05,649: INFO: preprocess: Preprocessing completed successfully.]
+[2026-07-18 18:48:05,649: INFO: main: >>>>>> stage Data Preprocess stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:48:05,649: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-07-18 18:48:05,651: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:48:05,652: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:48:05,652: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:48:05,652: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:48:05,652: INFO: common: Directory created or already exists at: artifacts/model_trainer]
+[2026-07-18 18:48:05,652: INFO: stage_4_training: running model_trainer instance and try to run stage 4 ]
+[2026-07-18 18:48:05,652: INFO: training: Loading X_train and y_train datasets...]
+[2026-07-18 18:48:05,654: INFO: training: Starting Optuna hyperparameter optimization...]
+[2026-07-18 18:48:25,177: INFO: training: Optimization finished. Best accuracy score: 0.8548]
+[2026-07-18 18:48:25,177: INFO: training: Best classifier: catboost]
+[2026-07-18 18:48:25,177: INFO: training: Filtering best parameters...]
+[2026-07-18 18:48:25,177: INFO: training: Filtered parameters: {'iterations': 200, 'depth': 5, 'learning_rate': 0.019761680125791853, 'l2_leaf_reg': 0.1294611765317234, 'loss_function': 'Logloss', 'verbose': 0}]
+[2026-07-18 18:48:25,177: INFO: training: Training final model with best hyperparameters...]
+[2026-07-18 18:48:29,184: INFO: training: Saving final model to artifacts/model_trainer/model.pkl...]
+[2026-07-18 18:48:29,186: INFO: training: Model saved successfully.]
+[2026-07-18 18:48:29,187: INFO: main: >>>>>> stage Model Trainer stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:48:29,187: INFO: main: >>>>>> stage Model evaluation stage started <<<<<<]
+[2026-07-18 18:48:29,189: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:48:29,190: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:48:29,191: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:48:29,191: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:48:29,191: INFO: common: Directory created or already exists at: artifacts/model_evaluation]
+[2026-07-18 18:48:29,191: INFO: evaluation: Loading test datasets for evaluation...]
+[2026-07-18 18:48:29,194: INFO: evaluation: Loading trained model from artifacts/model_trainer/model.pkl...]
+[2026-07-18 18:48:29,195: INFO: evaluation: Generating predictions on test data...]
+[2026-07-18 18:48:29,196: INFO: evaluation: Calculating performance metrics...]
+[2026-07-18 18:48:29,207: INFO: evaluation: Evaluation Metrics: {'accuracy': 0.7906976744186046, 'precision': 0.8055555555555556, 'recall': 0.9354838709677419, 'f1_score': 0.8656716417910447}]
+[2026-07-18 18:48:29,208: INFO: evaluation: Saving evaluation metrics to artifacts/model_evaluation/metrics.json...]
+[2026-07-18 18:48:29,208: INFO: evaluation: Model evaluation completed successfully.]
+[2026-07-18 18:48:29,208: INFO: main: >>>>>> stage Model evaluation stage completed <<<<<<
+
+x==========x]
+[2026-07-18 18:50:13,462: INFO: streamlit_app: try to send post request]
+[2026-07-18 18:50:13,469: ERROR: streamlit_app: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1119ac830>: Failed to establish a new connection: [Errno 61] Connection refused'))]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x1119ac830>: Failed to establish a new connection: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1119ac830>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/app/streamlit_app.py", line 96, in <module>
+    response = requests.post(
+        API_URL,
+        json=input_data
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x1119ac830>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[2026-07-18 18:50:38,902: INFO: api: log_start for app.py]
+[2026-07-18 18:50:38,904: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:50:38,905: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:50:38,906: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:50:38,906: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:50:59,913: INFO: streamlit_app: try to send post request]
+[2026-07-18 18:50:59,917: ERROR: streamlit_app: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10975c980>: Failed to establish a new connection: [Errno 61] Connection refused'))]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 494, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1093, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1037, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 325, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x10975c980>: Failed to establish a new connection: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10975c980>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ozenhadrick/Desktop/Mlops project 1/app/streamlit_app.py", line 96, in <module>
+    response = requests.post(
+        API_URL,
+        json=input_data
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8500): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10975c980>: Failed to establish a new connection: [Errno 61] Connection refused'))
+[2026-07-18 18:52:20,210: INFO: api: log_start for app.py]
+[2026-07-18 18:52:20,212: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 18:52:20,213: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 18:52:20,214: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 18:52:20,214: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 18:52:43,260: INFO: streamlit_app: try to send post request]
+[2026-07-18 18:52:43,267: INFO: api: try to run api predict call]
+[2026-07-18 18:52:43,267: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 18:52:43,291: INFO: streamlit_app: post is sent successfully]
+[2026-07-18 19:17:13,507: INFO: streamlit_app: try to send post request]
+[2026-07-18 19:17:13,509: INFO: api: try to run api predict call]
+[2026-07-18 19:17:13,509: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 19:17:13,515: INFO: streamlit_app: post is sent successfully]
+[2026-07-18 21:09:48,960: INFO: api: log_start for app.py]
+[2026-07-18 21:09:48,963: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 21:09:48,965: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 21:09:48,966: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 21:09:48,966: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 21:10:41,877: INFO: api: try to run api predict call]
+[2026-07-18 21:10:41,878: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:07,223: INFO: api: try to run api predict call]
+[2026-07-18 21:11:07,224: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:08,120: INFO: api: try to run api predict call]
+[2026-07-18 21:11:08,120: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:08,652: INFO: api: try to run api predict call]
+[2026-07-18 21:11:08,652: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:51,335: INFO: api: try to run api predict call]
+[2026-07-18 21:11:51,336: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:52,300: INFO: api: try to run api predict call]
+[2026-07-18 21:11:52,300: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:52,585: INFO: api: try to run api predict call]
+[2026-07-18 21:11:52,585: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:52,802: INFO: api: try to run api predict call]
+[2026-07-18 21:11:52,802: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:53,001: INFO: api: try to run api predict call]
+[2026-07-18 21:11:53,001: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:53,200: INFO: api: try to run api predict call]
+[2026-07-18 21:11:53,200: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:53,433: INFO: api: try to run api predict call]
+[2026-07-18 21:11:53,433: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:53,966: INFO: api: try to run api predict call]
+[2026-07-18 21:11:53,966: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:11:54,182: INFO: api: try to run api predict call]
+[2026-07-18 21:11:54,183: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:12:36,438: INFO: api: try to run api predict call]
+[2026-07-18 21:12:36,439: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:15:12,623: INFO: api: log_start for app.py]
+[2026-07-18 21:15:12,625: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 21:15:12,627: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 21:15:12,627: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 21:15:12,627: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 21:22:12,329: INFO: api: try to run api predict call]
+[2026-07-18 21:22:12,330: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:22:14,387: INFO: api: try to run api predict call]
+[2026-07-18 21:22:14,388: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:22:57,476: INFO: api: try to run api predict call]
+[2026-07-18 21:22:57,476: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:24:29,562: INFO: api: log_start for app.py]
+[2026-07-18 21:24:29,564: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 21:24:29,565: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 21:24:29,566: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 21:24:29,566: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 21:25:22,813: INFO: api: log_start for app.py]
+[2026-07-18 21:25:22,815: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 21:25:22,816: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 21:25:22,817: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 21:25:22,817: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 21:27:27,862: INFO: streamlit_app: try to send post request]
+[2026-07-18 21:27:27,884: ERROR: streamlit_app: Internal Server Error]
+[2026-07-18 21:27:29,228: INFO: streamlit_app: try to send post request]
+[2026-07-18 21:27:29,236: ERROR: streamlit_app: Internal Server Error]
+[2026-07-18 21:27:29,677: INFO: streamlit_app: try to send post request]
+[2026-07-18 21:27:29,685: ERROR: streamlit_app: Internal Server Error]
+[2026-07-18 21:27:29,978: INFO: streamlit_app: try to send post request]
+[2026-07-18 21:27:29,985: ERROR: streamlit_app: Internal Server Error]
+[2026-07-18 21:27:57,371: INFO: api: log_start for app.py]
+[2026-07-18 21:27:57,373: INFO: common: YAML file: config/config.yaml loaded successfully]
+[2026-07-18 21:27:57,375: INFO: common: YAML file: params.yaml loaded successfully]
+[2026-07-18 21:27:57,376: INFO: common: YAML file: schema.yaml loaded successfully]
+[2026-07-18 21:27:57,376: INFO: common: Directory created or already exists at: artifacts]
+[2026-07-18 21:28:07,095: INFO: streamlit_app: try to send post request]
+[2026-07-18 21:28:07,097: INFO: api: try to run api predict call]
+[2026-07-18 21:28:07,097: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:28:07,118: INFO: streamlit_app: post is sent successfully]
+[2026-07-18 21:28:17,728: INFO: streamlit_app: try to send post request]
+[2026-07-18 21:28:17,730: INFO: api: try to run api predict call]
+[2026-07-18 21:28:17,730: INFO: prediction: try to convert input data into pd.DataFrame format]
+[2026-07-18 21:28:17,736: INFO: streamlit_app: post is sent successfully]
