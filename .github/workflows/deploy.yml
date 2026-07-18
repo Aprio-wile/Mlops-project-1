@@ -96,9 +96,21 @@ jobs:
             docker login --username AWS --password-stdin \
             ${{ steps.login-ecr.outputs.registry }}
 
+            # Deploy FastAPI
             docker pull \
-            ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+            ${{ steps.login-ecr.outputs.registry }}/ml-api:latest
 
+            docker stop ml-api || true
+            docker rm ml-api || true
+
+            docker run -d \
+              --name ml-api \
+              --restart always \
+              -p 8500:8500 \
+              ${{ steps.login-ecr.outputs.registry }}/ml-api:latest
+
+
+            # Deploy Streamlit
             docker stop ${{ env.CONTAINER_NAME }} || true
             docker rm ${{ env.CONTAINER_NAME }} || true
 
