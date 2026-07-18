@@ -23,3 +23,4 @@ dvc.lock
 src/components/
 src/Pipeline/
 .env
+important advice.txt
