@@ -24,3 +24,4 @@ src/components/
 src/Pipeline/
 .env
 important advice.txt
+mlruns/0/models/

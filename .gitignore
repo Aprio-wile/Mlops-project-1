@@ -4,3 +4,4 @@ test.py
 .DS_Store
 .env
 .venv
+mlruns/0/models/
