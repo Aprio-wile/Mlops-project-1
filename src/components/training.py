@@ -106,18 +106,7 @@ class model_trainer:
 
             classifier_name = study.best_trial.params['classifier']
 
-            if classifier_name == "catboost":
-                mlflow.catboost.log_model(model, "model")
-
-            elif classifier_name == "lightgbm":
-                mlflow.lightgbm.log_model(model, "model")
-
             
-            elif classifier_name == "xgboost":
-                mlflow.xgboost.log_model(model, "model")
-
-            else:
-                mlflow.sklearn.log_model(model, "model")
 
         logging.info(f"Optimization finished. Best accuracy score: {study.best_value:.4f}")
 
@@ -168,16 +157,20 @@ class model_trainer:
 
         logging.info("Training final model with best hyperparameters...")
         final_model = model_class(**filtered_params)
-    final_model.fit(X_train, y_train)
+        final_model.fit(X_train, y_train)
 
-    if classifier_name == "catboost":
-        mlflow.catboost.log_model(final_model, "model")
+        if classifier_name == "catboost":
+            mlflow.catboost.log_model(final_model, "model")
 
-    elif classifier_name == "lightgbm":
-        mlflow.lightgbm.log_model(final_model, "model")
+        elif classifier_name == "lightgbm":
+            mlflow.lightgbm.log_model(final_model, "model")
 
-    elif classifier_name == "xgboost":
-        mlflow.xgboost.log_model(final_model, "model")
+            
+        elif classifier_name == "xgboost":
+            mlflow.xgboost.log_model(final_model, "model")
+
+        else:
+            mlflow.sklearn.log_model(final_model, "model")
 
 
         # Ensure directory for model saving exists
