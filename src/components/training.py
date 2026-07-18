@@ -9,7 +9,9 @@ from pathlib import Path
 import pickle
 import optuna
 import mlflow
+import dagshub
 
+dagshub.init(repo_owner='darklight9034257284', repo_name='mlops_project', mlflow=True)
 
 # Set optuna logging to warning to avoid cluttering the logs
 
