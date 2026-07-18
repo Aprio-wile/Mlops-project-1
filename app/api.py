@@ -41,6 +41,29 @@ async def predict(data:InputData):
     return {"status": prediction[0]}
     logging.info(' api call successful')
 
+@app.post("/test")
+def predict(data: InputData):
+
+    print("Received:")
+    print(data)
+
+    df = pd.DataFrame([data.dict()])
+
+    print("Before processing:")
+    print(df)
+
+    processed = processor.transform(df)
+
+    print("After processing:")
+    print(processed)
+
+    prediction = model.predict(processed)
+
+    print("Prediction:")
+    print(prediction)
+
+    return {"prediction": prediction[0]}
+
 
 
 
