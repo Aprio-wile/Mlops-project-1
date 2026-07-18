@@ -13,15 +13,12 @@ WORKDIR /app
 # Install system dependencies
 RUN apt-get update && rm -rf /var/lib/apt/lists/*
 
-# Copy dependency file first (better Docker cache)
-COPY requirements.txt .
+# Copy full project first (required because requirements.txt uses -e . which needs setup.py)
+COPY . .
 
 # Upgrade pip and install Python packages
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
-
-# Copy rest of project
-COPY . .
 
 
 
