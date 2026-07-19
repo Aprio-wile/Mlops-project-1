@@ -114,6 +114,7 @@ jobs:
             # Deploy FastAPI
             docker stop ml-api || true
             docker rm ml-api || true
+            docker image prune -af
 
             docker run -d \
               --name ml-api \
