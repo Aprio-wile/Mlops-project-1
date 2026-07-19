@@ -126,10 +126,11 @@ jobs:
               ${{ steps.login-ecr.outputs.registry }}/ml-app:latest \
               uvicorn app.api:app --host 0.0.0.0 --port 8500
 
-            # 5. Deploy Streamlit
+            # 5. Deploy Streamlit with Mobile Network Overrides
             docker run -d \
               --name ${{ env.CONTAINER_NAME }} \
               --restart always \
               -p 8501:8501 \
               -e API_URL="${{ secrets.API_URL }}" \
-              ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+              ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }} \
+              streamlit run app/streamlit_app.py --server.port=8501 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false
