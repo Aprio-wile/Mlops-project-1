@@ -38,3 +38,6 @@ always add host: ${{ steps.ec2-ip.outputs.instance_ip }} in ssh appleboy wale ho
             --output text)
           echo "instance_ip=$PUBLIC_IP" >> $GITHUB_OUTPUT
  immediately before ssh , so that. whenever you reboot it automatically fetch new public ip PublicIpAddress
+
+
+ write streamlit deploy with configuration of android to also run it on android
