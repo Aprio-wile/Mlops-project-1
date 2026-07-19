@@ -107,15 +107,18 @@ jobs:
             docker login --username AWS --password-stdin \
             ${{ steps.login-ecr.outputs.registry }}
 
-            # Pull the latest image (only one image for both services)
-            docker pull \
-            ${{ steps.login-ecr.outputs.registry }}/ml-app:latest
+            # 1. Stop and remove existing containers first to unlock the image
+            docker stop ml-api ${{ env.CONTAINER_NAME }} || true
+            docker rm ml-api ${{ env.CONTAINER_NAME }} || true
 
-            # Deploy FastAPI
-            docker stop ml-api || true
-            docker rm ml-api || true
+            # 2. Directly delete the old image to instantly clear RAM/Disk space
+            docker rmi ${{ steps.login-ecr.outputs.registry }}/ml-app:latest || true
             docker image prune -af
 
+            # 3. Now safely pull the fresh image without stacking memory
+            docker pull ${{ steps.login-ecr.outputs.registry }}/ml-app:latest
+
+            # 4. Deploy FastAPI
             docker run -d \
               --name ml-api \
               --restart always \
@@ -123,10 +126,7 @@ jobs:
               ${{ steps.login-ecr.outputs.registry }}/ml-app:latest \
               uvicorn app.api:app --host 0.0.0.0 --port 8500
 
-            # Deploy Streamlit
-            docker stop ${{ env.CONTAINER_NAME }} || true
-            docker rm ${{ env.CONTAINER_NAME }} || true
-
+            # 5. Deploy Streamlit
             docker run -d \
               --name ${{ env.CONTAINER_NAME }} \
               --restart always \
